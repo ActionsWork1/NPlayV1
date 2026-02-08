@@ -45,11 +45,11 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: dotnet build && pwsh bin/Debug/net9.0/playwright.ps1 install chromium --with-deps
+        run: dotnet build && pwsh ./bin/Debug/net9.0/playwright.ps1 install chromium --with-deps
 
       # --- Run Tests ---
       - name: Run Tests
-        run: dotnet test --no-restore
+        run: xvfb-run --auto-servernum dotnet test --no-restore
         continue-on-error: true
 
       # --- Allure Report with History ---
