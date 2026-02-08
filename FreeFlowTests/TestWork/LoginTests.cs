@@ -16,7 +16,7 @@ namespace NPlayV1.TestWork
         [AllureFeature("Login Functionality")]
         public async Task TestLogin()
         {
-            await Page.GotoAsync("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+            await Page.GotoAsync("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login", new() { Timeout=35_000});
             await AllureApi.Step("Enter Credentials", async () => {
                 await Page.FillAsync("input[name='username']", "Admin");
                 TestContext.Out.WriteLine("Enter Username data");
