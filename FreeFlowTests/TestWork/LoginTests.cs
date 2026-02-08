@@ -27,7 +27,6 @@ namespace NPlayV1.TestWork
             await Page.ClickAsync("button[type='submit']");
             TestContext.Out.WriteLine("cliks on submit button");
 
-
             await Expect(Page).ToHaveURLAsync(new Regex("dashboard"));
             TestContext.Out.WriteLine("wait for dashboard page");
         }
