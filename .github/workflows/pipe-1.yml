@@ -45,7 +45,7 @@ jobs:
 
       - name: Install Playwright Browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: dotnet build && pwsh bin/Debug/net9.0/playwright.ps1 install --with-deps
+        run: dotnet build && pwsh bin/Debug/net9.0/playwright.ps1 install chromium --with-deps
 
       # --- Run Tests ---
       - name: Run Tests
